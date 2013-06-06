@@ -94,6 +94,8 @@
       public final Node root;
       public final Object[] tail;
       final IPersistentMap _meta;
+
+      // constructors, methods
     }
   \end{minted}
 \end{frame}
@@ -118,6 +120,34 @@
       throw new IndexOutOfBoundsException();
     }
 
+  \end{minted}
+\end{frame}
+
+\begin{frame}
+  \frametitle{HashMap: структура}
+  \includegraphics[width=\textwidth,keepaspectration]{hashmap}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HashMap: состав}
+  \begin{minted}[bgcolor=bg,gobble=4,linenos=true]{java}
+    public class HashMap<K,V> {
+
+      transient Entry[] table;
+      transient int size;
+      int threshold;
+      final float loadFactor;
+      transient volatile int modCount;
+
+      static class Entry<K,V> {
+        final K key;
+        V value;
+        Entry<K,V> next;
+        final int hash;
+      }
+
+      // constructors, methods
+    }
   \end{minted}
 \end{frame}
 
